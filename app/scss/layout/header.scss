@@ -1,0 +1,92 @@
+.header {
+  font-family: 'Asap', sans-serif;
+
+  &__inner {
+    background: url("../img/bg element.png");
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 15px;
+  }
+
+  &__logo {
+    .logo__img {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      .img {
+        height: 24px;
+        width: 24px;
+        background: url("../img/Vector.png");
+      }
+    }
+
+    .logo__name {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  &__nav {
+    text-transform: uppercase;
+    display: flex;
+    color: $navColor;
+    font-size: 16px;
+    font-weight: 500;
+
+    li {
+      margin-right: 40px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .link {
+        display: block;
+        text-decoration: none;
+
+        &:hover {
+          color: darken($navColor,10%);
+        }
+      }
+
+      .active {
+        border-bottom: 2px solid #878787;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &__banner {
+    min-height: 670px;
+    background: url("../img/img face.png")100% 100% no-repeat;
+  }
+
+  &__title {
+    margin-top: 175px;
+    display: inline-block;
+  }
+
+  .title__name {
+    font-weight: 600;
+    font-size: 90px;
+    color: $navColor;
+    line-height: 90px;
+  }
+
+  .title__info {
+    font-size: 22px;
+    color: #cecece;
+    line-height: 22px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+
+  .title__button {}
+}

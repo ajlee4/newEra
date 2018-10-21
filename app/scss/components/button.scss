@@ -1,0 +1,31 @@
+.btn {
+  background-color: transparent;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 20px 50px;
+  line-height: 16px;
+  border: 1px solid $navColor;
+  color: $navColor;
+  transition: 0.3s;
+  font-weight: 700;
+
+  &:hover {
+    box-shadow: 0 0 5px 0;
+  }
+
+  &__portfolio {
+    border: 0;
+    background-color: white;
+    display: block;
+    margin: auto;
+  }
+
+  &__header {
+    margin-right: 20px;
+    border: 0;
+    background-color: white;
+  }
+}

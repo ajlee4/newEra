@@ -1,0 +1,145 @@
+.section__gray {
+  background: $grayColor;
+}
+
+.section__white {
+  background: $whiteColor;
+}
+
+.section__picture {
+  background: url("../img/img bg.png");
+  min-width: 570px;
+  min-height: 443px;
+}
+
+.section__info {
+  padding-right: 130px;
+}
+
+.section__description {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Asap", sans-serif;
+  align-items: center;
+}
+
+.section__text {
+  font-weight: 500;
+  color: $navColor;
+  padding-top: 15px;
+  padding-bottom: 40px;
+}
+
+.section {
+  &__title {
+    line-height: 46px;
+    color: $titleColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .title__name {
+      font-weight: 700;
+      font-size: 46px;
+      margin-top: 15px;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+  }
+
+  .title__left {
+    align-items: flex-start;
+  }
+
+  .name__left {
+    text-align: left;
+  }
+
+  &__inner {
+    padding-top: 110px;
+    padding-bottom: 125px;
+  }
+
+  .title__elem {
+    background: $titleElemColor;
+    width: 60px;
+    height: 4px;
+  }
+}
+
+.service {
+  &__row {
+    margin-top: 50px;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+  }
+
+  &__info {
+    font-weight: 500;
+    color: $navColor;
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: left;
+  }
+}
+
+.portfolio {
+  margin-top: 45px;
+
+  &__row {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    position: relative;
+
+    img {
+      max-width: 100%;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: 0.3s;
+      min-width: 100%;
+      height: 100%;
+    }
+
+    &:hover:before {
+      opacity: 1;
+      cursor: pointer;
+      box-shadow: 0 0 28px 0 rgba(0,0,0,0.75);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transition: all 0.3s;
+      width: 56px;
+      height: 56px;
+      margin-left: -28px;
+      margin-top: -28px;
+    }
+
+    &:hover:after {}
+  }
+}

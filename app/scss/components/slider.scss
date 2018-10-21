@@ -1,0 +1,47 @@
+.slider {
+  max-width: 955px;
+  margin: 0 auto;
+
+  &__elem {
+    padding: 80px 60px 105px 120px;
+    border: 1px solid #212121;
+    margin-top: 60px;
+
+    .elem {
+      &__info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &__img {
+        min-width: 159px;
+        min-height: 159px;
+        background: url("../img/test1.png") no-repeat;
+        margin-right: 30px;
+        background-size: cover;
+      }
+    }
+
+    .name {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 30px;
+      color: #373737;
+    }
+
+    .position {
+      font-size: 12px;
+      color: #454545;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .text {
+      font-size: 16px;
+      color: #b0b0b0;
+      text-transform: uppercase;
+    }
+  }
+}
