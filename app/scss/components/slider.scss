@@ -17,7 +17,6 @@
       &__img {
         min-width: 159px;
         min-height: 159px;
-        background: url("../img/test1.png") no-repeat;
         margin-right: 30px;
         background-size: cover;
       }
@@ -44,4 +43,31 @@
       text-transform: uppercase;
     }
   }
+}
+
+.slick-dots li button {
+  border: 1px solid #212121;
+  width: 13px;
+  height: 13px;
+  padding: 0;
+
+  &:before {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background: white;
+  }
+}
+.slick-dots li.slick-active button {
+  background: black;
+}
+.slick-dots li button:hover:before,
+.slick-dots li.slick-active button:before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background: black;
+}
+.slick-dots {
+  bottom: 30px;
 }
