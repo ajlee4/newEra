@@ -6,7 +6,9 @@
     padding: 80px 60px 105px 120px;
     border: 1px solid #212121;
     margin-top: 60px;
-
+&:focus {
+  outline:inherit;
+}
     .elem {
       &__info {
         display: flex;

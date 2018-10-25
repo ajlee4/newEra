@@ -1,16 +1,12 @@
-.section__gray {
+.section_gray {
   background: $grayColor;
 }
 
-.section__white {
+.section_white {
   background: $whiteColor;
 }
 
-.section__picture {
-  background: url("../img/img bg.png");
-  min-width: 570px;
-  min-height: 443px;
-}
+
 
 .section__info {
   padding-right: 130px;
@@ -38,7 +34,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    &_left {
+      align-items: flex-start;
+    }
     .title__name {
       font-weight: 700;
       font-size: 46px;
@@ -48,15 +46,6 @@
       letter-spacing: 5px;
     }
   }
-
-  .title__left {
-    align-items: flex-start;
-  }
-
-  .name__left {
-    text-align: left;
-  }
-
   &__inner {
     padding-top: 110px;
     padding-bottom: 125px;

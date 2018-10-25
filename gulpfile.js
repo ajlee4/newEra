@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
   gutil = require('gulp-util'),
   sass = require('gulp-sass'),
   browserSync = require('browser-sync'),
@@ -11,10 +11,18 @@ var gulp = require('gulp'),
   rsync = require('gulp-rsync'),
   plumber = require('gulp-plumber'),
   compileHandlebars = require('gulp-compile-handlebars'),
-  trim = require('gulp-trim');
+  trim = require('gulp-trim'),
+  sourcemaps = require('gulp-sourcemaps'),
+  del = require('del');
 
-var config = {
-  server: ["./dist"],
+gulp.task('clean',
+  del.bind(null, ['./.tmp'], {
+    dot: true
+  })
+);
+
+const config = {
+  server: ['./.tmp'],
   startPath: '/html/',
   tunnel: true,
   host: 'localhost',
@@ -59,12 +67,13 @@ gulp.task('html', function() {
       path.extname = ".html"
     }))
     .pipe(trim())
-    .pipe(gulp.dest("dist/html"))
+    .pipe(gulp.dest('./.tmp/html'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('styles', function() {
   return gulp.src('app/scss/main.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'expanded'
     }).on("error", notify.onError()))
@@ -79,27 +88,28 @@ gulp.task('styles', function() {
           specialComments: 0
         }
       }
-    })) // Opt., comment out when debugging
-    .pipe(gulp.dest('dist/css'))
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./.tmp/css'))
     .pipe(browserSync.stream())
 });
 
 gulp.task('js', function() {
   return gulp.src([
-      'app/libs/jquery/dist/jquery.min.js',
+    "app/js/libs/jquery/dist/jquery.min.js",
       'app/js/common.js',
-      "app/libs/slick/slick.min.js" // Always at the end
+      "app/js/libs/slick/slick.min.js"
     ])
     .pipe(concat('scripts.min.js'))
     // .pipe(uglify()) // Mifify js (opt.)
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('./.tmp/js'))
     .pipe(browserSync.reload({
       stream: true
     }))
 });
-gulp.task('image:build', gulp.series(function(cb) {
+gulp.task('image', gulp.series(function(cb) {
   gulp.src("app/img/*.*")
-    .pipe(gulp.dest("dist/img"))
+    .pipe(gulp.dest('./.tmp/img'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -122,12 +132,26 @@ gulp.task('rsync', function() {
 gulp.task('webserver', function() {
   browserSync(config);
 });
+gulp.task('fonts', function() {
+  return gulp.src('./app/fonts/**/*').pipe(gulp.dest('./.tmp/fonts'))
+});
+gulp.task('dist', function() {
+  return gulp.src('./.tmp/**/*').pipe(gulp.dest('./dist'));
+});
 
 gulp.task('watch', function() {
   gulp.watch('app/scss/**/*.scss', gulp.series("styles"));
-  gulp.watch(['libs/**/*.js', 'app/js/common.js'], gulp.series("js"));
+  gulp.watch("app/js/**/*.js", gulp.series("js"));
   gulp.watch('app/html/**/*.*', gulp.series('html'));
-  gulp.watch("app/img/*.*", gulp.series('image:build'));
+  gulp.watch("app/img/*.*", gulp.series('image'));
 });
+gulp.task('dev', gulp.series(
+  gulp.parallel('clean'),
+  gulp.parallel('styles', 'html', 'js', 'fonts','image'),
+  gulp.parallel('watch', 'webserver')
+));
+gulp.task('build', gulp.series(
 
-gulp.task('default', gulp.parallel('watch', 'webserver'));
+  gulp.parallel('dist'),
+    gulp.parallel('clean')
+));

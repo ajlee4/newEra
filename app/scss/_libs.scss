@@ -1,5 +1,4 @@
-@import "../libs/bootstrap/scss/bootstrap-reboot.scss";
-@import "../libs/bootstrap/scss/bootstrap-grid.scss";
-@import "../libs/bootstrap/scss/utilities/_sizing.scss";
-@import "../libs/slick/slick.scss";
-@import "../libs/slick/slick-theme.scss";
+@import "app/scss/libs/bootstrap/normalize.scss";
+@import "app/scss/libs/bootstrap/grid.scss";
+@import "app/scss//libs/slick/slick.scss";
+@import "app/scss/libs/slick/slick-theme.scss";

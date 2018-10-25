@@ -25,6 +25,8 @@
     "gulp-util": "^3.0.8"
   },
   "dependencies": {
+    "del": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.4",
     "owl.carousel": "^2.3.4"
   }
 }

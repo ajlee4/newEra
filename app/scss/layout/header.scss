@@ -3,13 +3,14 @@
 
   &__inner {
     background: url("../img/bg element.png");
+    background-size: cover;
   }
 
   &__menu {
     display: flex;
     justify-content: space-between;
     padding-top: 30px;
-    padding-bottom: 15px;
+    padding-bottom: 22px;
   }
 
   &__logo {
@@ -63,16 +64,6 @@
     }
   }
 
-  &__banner {
-    min-height: 670px;
-    background: url("../img/img face.png")100% 100% no-repeat;
-  }
-
-  &__title {
-    margin-top: 175px;
-    display: inline-block;
-  }
-
   .title__name {
     font-weight: 600;
     font-size: 90px;
@@ -87,6 +78,14 @@
     margin-bottom: 30px;
     margin-top: 10px;
   }
-
-  .title__button {}
+  &__banner {
+  background: url("../img/img face.png")100% 100% no-repeat;
+min-height: 650px;
+  }
+}
+.banner{
+  &__title {
+    margin-top: 160px;
+    display: inline-block;
+  }
 }
