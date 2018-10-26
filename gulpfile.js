@@ -29,7 +29,6 @@ const config = {
   port: 3000,
   logPrefix: "Egor_Patsyno"
 };
-
 gulp.task('html', function() {
   const data = {
       j_title: ''
@@ -98,7 +97,8 @@ gulp.task('js', function() {
   return gulp.src([
     "app/js/libs/jquery/dist/jquery.min.js",
       'app/js/common.js',
-      "app/js/libs/slick/slick.min.js"
+      "app/js/libs/slick/slick.min.js",
+      "app/js/index.js"
     ])
     .pipe(concat('scripts.min.js'))
     // .pipe(uglify()) // Mifify js (opt.)
