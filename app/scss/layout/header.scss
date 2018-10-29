@@ -11,9 +11,17 @@
     justify-content: space-between;
     padding-top: 30px;
     padding-bottom: 22px;
+    @include mobile {
+      padding-top: 10px;
+      padding-bottom: 0;
+    }
   }
 
   &__logo {
+    @include mobile {
+      display: none;
+    }
+
     .logo__img {
       display: flex;
       justify-content: center;
@@ -35,14 +43,37 @@
   }
 
   &__nav {
+    display: flex;
+    align-items: center;
+    @include mobile {
+      flex: 1;
+    }
+  }
+
+  .nav {
     text-transform: uppercase;
     display: flex;
     color: $navColor;
     font-size: 16px;
     font-weight: 500;
+    width: 100%;
+    @include mobile {
+      visibility: hidden;
+      justify-content: space-between;
+      transition-delay: 0s;
+
+      &_active {
+        visibility: visible;
+        transition: visibility 0s linear 0.3s,;
+      }
+    }
 
     li {
       margin-right: 40px;
+      @include mobile {
+        margin-right: 15px;
+        font-size: 10px;
+      }
 
       &:last-child {
         margin-right: 0;
@@ -65,6 +96,13 @@
   }
 
   .title__name {
+    @include mobile {
+      font-size: 60px;
+      line-height: 60px;
+    }
+    @include tablet {
+      font-size: 60px;
+    }
     font-weight: 600;
     font-size: 90px;
     color: $navColor;
@@ -78,14 +116,44 @@
     margin-bottom: 30px;
     margin-top: 10px;
   }
+
   &__banner {
-  background: url("../img/img face.png")100% 100% no-repeat;
-min-height: 650px;
+    background: url("../img/img face.png")100% 100% no-repeat;
+    @include mobile {
+      background: url("../img/img face mobile.png") no-repeat;
+      background-size: contain;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      margin-top: 0;
+      min-height: 600px;
+    }
+    @include tablet {
+      position: relative;
+    }
+    min-height: 650px;
   }
 }
-.banner{
+
+.banner {
   &__title {
     margin-top: 160px;
     display: inline-block;
+    @include mobile {
+      margin-top: 0;
+      position: absolute;
+      bottom: 20px;
+    }
+    @include tablet {
+      position: absolute;
+      bottom: 300px;
+    }
+  }
+}
+
+.title__button {
+  @include mobile {
+    display: flex;
+    justify-content: space-between;
   }
 }

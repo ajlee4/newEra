@@ -1,19 +1,30 @@
 .slider {
   max-width: 955px;
   margin: 0 auto;
+  @include mobile {
+    width: 100%;
+  }
 
   &__elem {
     padding: 80px 60px 105px 120px;
     border: 1px solid #212121;
     margin-top: 60px;
-&:focus {
-  outline:inherit;
-}
+    @include mobile {
+      padding: 30px 30px 75px;
+    }
+
+    &:focus {
+      outline: inherit;
+    }
+
     .elem {
       &__info {
         display: flex;
         align-items: center;
         justify-content: center;
+        @include mobile {
+          flex-direction: column;
+        }
       }
 
       &__img {
@@ -21,6 +32,9 @@
         min-height: 159px;
         margin-right: 30px;
         background-size: cover;
+        @include mobile {
+          margin-bottom: 20px;
+        }
       }
     }
 
@@ -30,6 +44,9 @@
       font-size: 30px;
       line-height: 30px;
       color: #373737;
+      @include mobile {
+        text-align: center;
+      }
     }
 
     .position {
@@ -37,6 +54,9 @@
       color: #454545;
       font-style: italic;
       margin-bottom: 20px;
+      @include mobile {
+        text-align: center;
+      }
     }
 
     .text {
@@ -60,9 +80,11 @@
     background: white;
   }
 }
+
 .slick-dots li.slick-active button {
   background: black;
 }
+
 .slick-dots li button:hover:before,
 .slick-dots li.slick-active button:before {
   content: "";
@@ -70,6 +92,7 @@
   height: 13px;
   background: black;
 }
+
 .slick-dots {
   bottom: 30px;
 }

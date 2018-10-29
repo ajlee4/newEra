@@ -27,17 +27,7 @@ html {
   margin-left: auto;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
 
-@media (min-width: 1366px) {
-  .container {
-    max-width: 1169px;
-  }
-}
 
 .container-fluid {
   width: 100%;

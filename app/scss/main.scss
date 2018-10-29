@@ -1,4 +1,5 @@
 @import "vars";
+@import "config/mixin";
 @import "fonts";
 @import "libs";
 @import "common";
@@ -9,3 +10,4 @@
 @import "components/button";
 @import "components/slider";
 @import "components/calc";
+@import "components/popup";

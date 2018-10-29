@@ -8,6 +8,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  @include mobile {
+    width: 100%;
+    font-size: 14px;
+  }
 
   .next,
   .prev {
@@ -19,6 +24,10 @@
     border: 1px solid #b6bcc1;
     border-radius: 5px;
     position: relative;
+    @include mobile {
+      width: 50px;
+      height: 50px;
+    }
 
     &:before {
       content: "";
@@ -69,8 +78,9 @@
     border-radius: 5px;
     margin-top: 30px;
     font-weight: 600;
-  &:hover {
-    background-color: darken(#f4bc42, 10%);
-  }
+
+    &:hover {
+      background-color: darken(#f4bc42, 10%);
+    }
   }
 }

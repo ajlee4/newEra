@@ -78,3 +78,10 @@ calcRestroom.addEventListener("click", function(e) {
     counterRestroomPrev()
   }
 });
+
+
+$('.menu-btn').on('click', function(e) {
+  e.preventDefault();
+  $(this).toggleClass('menu-btn_active');
+  $('.nav').toggleClass('nav_active');
+});
